@@ -2,14 +2,9 @@
 #include <QQmlComponent>
 #include <QQmlEngine>
 #include <QQmlContext>
-//#include <QQuickItem>
-//#include <QCoreApplication>
-//#include <QQmlApplicationEngine>
 #include "GetXrandrParams.h"
 #include "SetCustomDpi.h"
 #include "SetDisplayDpi.h"
-//#include <QDebug>
-//#include <iostream>
 
 
 int main(int argc, char** argv)

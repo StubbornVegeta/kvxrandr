@@ -2,8 +2,6 @@
 #define SETDISPLAYDPI_H
 #include <QObject>
 #include "GetXrandrParams.h"
-#include <QQmlProperty>
-//#include <QString>
 
 
 class SetDisplayDpi : public QObject

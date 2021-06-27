@@ -1,36 +1,6 @@
 #include "GetXrandrParams.h"
 #include <QProcess>
-#include <QDebug>
 
-//QStringList GetXrandrDevs()
-//{
-    //QProcess process;
-    //process.start("bash", QStringList() << "-c" << "xrandr | grep ' connected ' | awk '{ print$1 }'");
-    //process.waitForFinished();
-    ////获取命令执行的结果
-    //QByteArray Dev = process.readAllStandardOutput();
-    //QString StrDev = Dev;
-
-    //QStringList DevList = StrDev.split('\n');
-    //int NumDev = DevList.length()-1;
-    //QString Native = DevList[0];
-    //qDebug() << DevList[0] <<  DevList[1];
-    //qDebug() << NumDev;
-    //return DevList;
-//};
-
-//QStringList GetXrandrDpis(QStringList& DevList)
-//{
-    //QProcess process;
-    //process.start("bash", QStringList() << "-c" << "xrandr | grep '[0-9]x[0-9]' | awk '{ print$1 }'");
-    //process.waitForFinished();
-    ////获取命令执行的结果
-    //QByteArray DpiArray = process.readAllStandardOutput();
-    //QString StrDpi = DpiArray;
-    //QStringList DpiList = StrDpi.split('\n');
-    //qDebug() << DpiList;
-    //return DpiList;
-//}
 
 Params GetXrandrParams()
 {
@@ -58,35 +28,24 @@ Params GetXrandrParams()
     QStringList DpiList = StrDpi.split('\n');       // 本机和扩展屏所支持的所有dpi, 但list中包括了设备名
     QList<int> DevIndex;                            // 设备名在DpiList中的索引
     int NativeIndex = 0;                            // 本机设备名在DpiList中的位置
-    int DisplayIndex = 0;                           // 扩展屏设备名在DpiList中的位置
 
-    //qDebug() << DpiList.indexOf(DevList[1]);
     for (int i = 0; i<NumDev; i++){
-        //if (DpiList.contains(DevList[i])){
-            //qDebug() << DpiList[i];
         if (DpiList[i] == StrNative)
         {
             NativeIndex = i;
         }
         DevIndex.append(DpiList.indexOf(DevList[i]));
-        //}
     }
     DevIndex.append(DpiList.length());
 
-    //qDebug() << DpiList;
     // 获取本机设备分辨率
     QStringList NativeDpiList;
-    //qDebug() << NativeIndex << DevIndex[NativeIndex+1];
     for (int i = NativeIndex+1; i<DevIndex[NativeIndex+1]-1; i++)
     {
         NativeDpiList.append(DpiList[i]);
     }
-    //qDebug() << NativeDpiList;
 
     // 如果连接了两个扩展屏
-    // DevList = [d1, n, d2]
-    // DevIndex = [d1_ind, n_ind, d2_ind]
-
     DevList.removeAt(NativeIndex);
     DevIndex.removeAt(NativeIndex);
     NumDev--;
@@ -124,9 +83,6 @@ Params GetXrandrParams()
             DisplayDpiList.append(tmp);
         }
     }
-
-
-    //qDebug() << DisplayDpiList;
 
     Params params = {DevList, StrNative, NativeDpiList, NumDev, DisplayDpiList};
     return params;

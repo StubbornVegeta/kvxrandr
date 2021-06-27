@@ -149,10 +149,6 @@ Window {
             border.width: nativeCombobox.visualFocus ? 1 : 1
             radius: combRadius
         }
-        //Text {
-            //text: nativeCbItems.get(currentIndex).title
-            //anchors.centerIn: parent
-        //}
 
         ListModel {
             id: nativeCbItems
@@ -174,8 +170,6 @@ Window {
             }
         }
     }
-
-
 
     Text {
         id: displayDpi
@@ -232,7 +226,6 @@ Window {
             border.width: displayCombobox.visualFocus ? 1 : 1
             radius: combRadius
         }
-
 
         ListModel {
             id: displayCbItems
@@ -325,9 +318,6 @@ Window {
             }
         }
     }
-
-
-
 
     Text {
         id: customX

@@ -2,8 +2,6 @@
 #define SETCUSTOMDPI_H
 #include <QObject>
 #include "GetXrandrParams.h"
-#include <QQmlProperty>
-//#include <QString>
 
 
 class SetCustomDpi : public QObject

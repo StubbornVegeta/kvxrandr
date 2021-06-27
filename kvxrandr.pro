@@ -11,11 +11,12 @@ MY_DEFAULT_INSTALL=/usr/local
 target.path = $$MY_DEFAULT_INSTALL/bin
 INSTALLS += target
 
-
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
 HEADERS += GetXrandrParams.h SetCustomDpi.h SetDisplayDpi.h
 SOURCES +=  main.cpp GetXrandrParams.cpp SetCustomDpi.cpp SetDisplayDpi.cpp
 RESOURCES += qml.qrc
+
 
 QT += gui qml quick widgets core

@@ -1,7 +1,6 @@
 #include "SetCustomDpi.h"
-#include <QDebug>
+#include <QQmlProperty>
 #include <QProcess>
-#include <iostream>
 
 SetCustomDpi::SetCustomDpi( QObject *obj, Params params)
     : m_CompentObject(obj), m_params(params)
@@ -29,7 +28,4 @@ void SetCustomDpi::setCustomDpi()
     QProcess process;
     process.start("/bin/sh", QStringList() << "-c" << userModeName+newMode+addMode+outPut);
     process.waitForFinished();
-    //QByteArray Ret = process.readAllStandardOutput();
-    //QString StrRet = Ret;
-    //qDebug() << Ret;
 }
