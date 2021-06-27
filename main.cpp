@@ -21,7 +21,6 @@ int main(int argc, char** argv)
     engine.rootContext()->setContextProperty("$Native_", params.native);
     for (int i = 0; i<params.numDevs; i++)
     {
-        qDebug() << "$Display"+QString::number(i);
         engine.rootContext()->setContextProperty("$Display"+QString::number(i), params.devs[i]);
         engine.rootContext()->setContextProperty("$displayDpiList"+QString::number(i), params.displayDpiList[i]);
     }
@@ -33,8 +32,10 @@ int main(int argc, char** argv)
     SetCustomDpi customDpi(CompentObject, params);
     SetDisplayDpi displayDpi(CompentObject, params);
 
-    QObject::connect(CompentObject, SIGNAL(customSend()), &customDpi, SLOT(setCustomDpi()) );
-    QObject::connect(CompentObject, SIGNAL(displaySend()), &displayDpi, SLOT(setDisplayDpi()) );
+    if (params.numDevs > 0) {
+        QObject::connect(CompentObject, SIGNAL(customSend()), &customDpi, SLOT(setCustomDpi()) );
+        QObject::connect(CompentObject, SIGNAL(displaySend()), &displayDpi, SLOT(setDisplayDpi()) );
+    }
 
     return app.exec();
 }
