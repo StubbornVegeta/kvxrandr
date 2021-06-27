@@ -2,7 +2,7 @@
 
 `kvxrandr`是一款允许用户添加所需要的分辨率的屏幕管理器。目前`kvxrandr`只支持外接一块屏幕或一个投影仪。
 
-如果您在使用`lxrandr`的时候，即使是调整到最好的投影效果，也会出现类似的画面截断情况，或者画面过小的情况。大多数情况是因为由于硬件或驱动的原因，`xrandr` 不能检测出您的显示器所有的有效分辨率^[https://wiki.archlinux.org/title/Xrandr_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)]。这种情况下您可以选择使用`kvxrandr`。
+如果您在使用`lxrandr`的时候，即使是调整到最好的投影效果，也会出现类似的画面截断情况，或者画面过小的情况。大多数情况是因为由于硬件或驱动的原因，`xrandr` 不能检测出您的显示器所有的有效分辨率<sup id="a1">[[1]](#f1)</sup>  。这种情况下您可以选择使用`kvxrandr`。
 （图片不是很清晰:sweat:）
 
 - `lxrandr`显示
@@ -48,3 +48,5 @@ sudo make uninstall
 - [ ] 添加修改主屏幕分辨率的功能
 - [ ] 添加窗口缩放功能
 - [ ] 支持多块外接屏幕
+
+<span id="f1">1. [^](#a1)</span> https://wiki.archlinux.org/title/Xrandr_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
