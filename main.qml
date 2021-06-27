@@ -5,7 +5,6 @@ import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
 
 Window {
-    //property int $numDevs:2
     property string chooseDisplayDev:"HDMI-1"
     property string chooseDisplayPosition:"--same-as "
     property string chooseDisplayDpi:""
@@ -14,14 +13,13 @@ Window {
     visible: true
     width: 400
     height: $numDevs==1 ? 60:($numDevs+1)*60
+    flags: Qt.FramelessWindowHint | Qt.WindowSystemMenuHint
+           | Qt.WindowStaysOnTopHint | Qt.X11BypassWindowManagerHint
 
     x: Screen.width / 2 - width / 2
     y: Screen.height / 2 - height / 2
 
-    //AutoResize {
-        //fixedAspectRatio: true
-        //accordingToX: true
-    //}
+
     Text {
         id: native_
         text: $Native_
@@ -103,7 +101,7 @@ Window {
             color: nativeButton.down ? "#17a81a" : "white"
             radius: combRadius
         }
-        onClicked: ChangeNativeDpi()
+        //onClicked: ChangeNativeDpi()
     }
 
     Button {
